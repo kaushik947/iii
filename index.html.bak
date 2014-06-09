@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p
+{
+color:red;
+
+}
+body
+{
+background:black;
+max-width:100%;
+max-height:100%;
+}
+#a
+{
+position:absolute;
+left:45%;
+top:45%;
+background:white;
+width:10%;
+height:10%;
+
+}
+#options
+{
+display:none;
+position:absolute;
+top:40%;
+left:40%;
+width:20%;
+height:20%;
+background-color:#404040;
+
+
+}
+button
+{
+background:#180000; 
+color:white;
+}
+
+#play
+{
+position:relative;
+top:50%;
+left:30%;
+}
+
+
+#htplay
+{
+position:relative;
+top:50%;
+left:40%;
+}
+
+#attack
+{
+position:absolute;
+left:0%;
+top:50%;
+height:2%;
+width:5%;
+background:blue;
+}
+
+</style>
+<script src="./myjq.js"></script>
+
+<script>
+$(document).ready(function(){
+
+$("#attack").animate({left:'95%'},1500);
+
+
+var flag=0;
+var lef=0;
+var tp=0;
+var h=0;
+var w=0;
+
+
+var el = $(document);
+el[0].addEventListener('touchstart', function(e) {
+  e.preventDefault();
+  offsetX = ($(window).width()-el.outerWidth(true))/2;
+  startX = e.targetTouches[0].pageX - offsetX;
+}, false);
+el[0].addEventListener("touchmove", function(e) {
+  e.preventDefault();
+  var diffX = (e.changedTouches[0].pageX - offsetX) - startX;
+  el.css("-webkit-transform", "translate3d("+diffX+"px, 0, 0)");
+}, false);
+el[0].addEventListener("touchend", function(e) {
+
+  
+  
+  
+
+
+}, false);
+
+
+
+
+
+
+
+el[0].addEventListener('touchstart', function(event) {
+ 
+ lef=parseInt($("#a").css("left"),10);
+ tp=parseInt($("#a").css("top"),10);
+ h=$("#a").height();
+ w=$("#a").width();
+
+ $("#a").text(lef);
+ var x=event.targetTouches[0].pageX;
+ var y=event.targetTouches[0].pageY;
+
+if(x>=lef&&x<=(lef+w)&&y<=(tp+h+4)&&y>=(tp+h-4))
+    flag=1;
+else if(x>=lef&&x<=(lef+w)&&y<=(tp+4)&&y>=(tp-4))
+    flag=2;
+else if(y>=tp&&y<=(tp+h)&&x<=(lef+w+4)&&x>=(lef+w-4))
+    flag=3;
+else if(y>=tp&&y<=(tp+h)&&x<=(lef+4)&&x>=(lef-4))
+    flag=4;
+
+
+
+});
+
+
+el[0].addEventListener("touchmove", function(event) {
+
+ var x=event.targetTouches[0].pageX;
+ var y=event.targetTouches[0].pageY;
+
+
+
+ $("span").text(x + ", " + y+",,,"+$("#a").css("left")+","+$("#a").css("top")+lef+"flag="+flag);
+
+
+if(flag==1)
+{
+
+    if(y<tp)
+{
+
+    $("#a").animate({
+                       top:y
+                       ,height:tp-y
+
+                   },1);
+
+
+
+}
+
+else
+{
+    $("#a").animate({
+                       top:tp
+                       ,height:(y)-tp
+
+                   },1);
+}
+}
+else if(flag==2)
+{
+
+$("#a").text("hello");
+
+    if(y<tp+h)
+{
+
+    $("#a").animate({
+                       top:y
+                       ,height:h+tp-y
+
+                   },1);
+
+
+
+}
+
+else
+{
+    $("#a").animate({
+                       top:tp+h
+                       ,height:(y)-(tp+h)
+
+                   },1);
+}
+
+}
+
+
+else if(flag==3)
+{
+
+    if(x<lef)
+{
+
+    $("#a").animate({
+                       left:x
+                       ,width:lef-x
+
+                   },1);
+
+
+
+}
+
+else
+{
+    $("#a").animate({
+                       left:lef
+                       ,width:(x)-lef
+
+                   },1);
+}
+}
+
+
+else if(flag==4)
+{
+
+$("#a").text("hello");
+
+    if(x<lef+w)
+{
+
+    $("#a").animate({
+                       left:x
+                       ,width:w+lef-x
+
+                   },1);
+
+
+
+}
+
+else
+{
+    $("#a").animate({
+                       left:lef+w
+                       ,width:(x)-(lef+w)
+
+                   },1);
+}
+
+}
+
+
+
+
+
+},false);
+
+el[0].addEventListener("touchend", function(e) {
+flag=0;
+
+},false);
+
+});
+</script>
+</head>
+<body>
+fjhgukiikhujh
+
+<div id="options">
+<button id="play">PLAY</button>
+
+<button id="htplay">HOW TO PLAY</button>
+
+</div>
+
+
+<p>Mouse is at coordinates: <span></span>.</p>
+<div id="a">
+</div>
+
+<div id="attack">
+</div>
+
+</body>
+</html>
