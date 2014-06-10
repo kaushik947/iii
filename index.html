@@ -93,8 +93,8 @@ el[0].addEventListener('touchstart', function(event) {
  w=$("#a").width();
 
  $("#a").text(lef);
- var x=event.targetTouches[0].pageX;
- var y=event.targetTouches[0].pageY;
+ var x=event.changedTouches[0].pageX;
+ var y=event.changedTouches[0].pageY;
 
 if(x>=lef&&x<=(lef+w)&&y<=(tp+h+4)&&y>=(tp+h-4))
     flag=1;
@@ -112,8 +112,8 @@ else if(y>=tp&&y<=(tp+h)&&x<=(lef+4)&&x>=(lef-4))
 
 el[0].addEventListener("touchmove", function(event) {
 
- var x=event.targetTouches[0].pageX;
- var y=event.targetTouches[0].pageY;
+ var x=event.changedTouches[0].pageX;
+ var y=event.changedTouches[0].pageY;
 
 
 
