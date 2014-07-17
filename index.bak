@@ -85,7 +85,7 @@ var w=0;
 var el = $(document);
 
 
-el[0].addEventListener('touchstart', function(event) {
+el.addEventListener('touchstart', function(event) {
  
  lef=parseInt($("#a").css("left"),10);
  tp=parseInt($("#a").css("top"),10);
@@ -93,8 +93,8 @@ el[0].addEventListener('touchstart', function(event) {
  w=$("#a").width();
 
  $("#a").text(lef);
- var x=event.touches[0].pageX;
- var y=event.touches[0].pageY;
+ var x=event.touches.pageX;
+ var y=event.touches.pageY;
 
 if(x>=lef&&x<=(lef+w)&&y<=(tp+h+4)&&y>=(tp+h-4))
     flag=1;
@@ -110,10 +110,10 @@ else if(y>=tp&&y<=(tp+h)&&x<=(lef+4)&&x>=(lef-4))
 });
 
 
-el[0].addEventListener("touchmove", function(event) {
+el.addEventListener("touchmove", function(event) {
 
- var x=event.changedTouches[0].pageX;
- var y=event.changedTouches[0].pageY;
+ var x=event.changedTouches.pageX;
+ var y=event.changedTouches.pageY;
 
 
 
@@ -237,7 +237,7 @@ else
 
 },false);
 
-el[0].addEventListener("touchend", function(e) {
+el.addEventListener("touchend", function(e) {
 flag=0;
 
 },false);
