@@ -83,29 +83,6 @@ var w=0;
 
 
 var el = $(document);
-el[0].addEventListener('touchstart', function(e) {
-  e.preventDefault();
-  offsetX = ($(window).width()-el.outerWidth(true))/2;
-  startX = e.targetTouches[0].pageX - offsetX;
-}, false);
-el[0].addEventListener("touchmove", function(e) {
-  e.preventDefault();
-  var diffX = (e.changedTouches[0].pageX - offsetX) - startX;
-  el.css("-webkit-transform", "translate3d("+diffX+"px, 0, 0)");
-}, false);
-el[0].addEventListener("touchend", function(e) {
-
-  
-  
-  
-
-
-}, false);
-
-
-
-
-
 
 
 el[0].addEventListener('touchstart', function(event) {
@@ -116,8 +93,8 @@ el[0].addEventListener('touchstart', function(event) {
  w=$("#a").width();
 
  $("#a").text(lef);
- var x=event.targetTouches[0].pageX;
- var y=event.targetTouches[0].pageY;
+ var x=event.touches[0].pageX;
+ var y=event.touches[0].pageY;
 
 if(x>=lef&&x<=(lef+w)&&y<=(tp+h+4)&&y>=(tp+h-4))
     flag=1;
@@ -135,8 +112,8 @@ else if(y>=tp&&y<=(tp+h)&&x<=(lef+4)&&x>=(lef-4))
 
 el[0].addEventListener("touchmove", function(event) {
 
- var x=event.targetTouches[0].pageX;
- var y=event.targetTouches[0].pageY;
+ var x=event.changedTouches[0].pageX;
+ var y=event.changedTouches[0].pageY;
 
 
 
@@ -260,10 +237,10 @@ else
 
 },false);
 
-$(document).mouseup(function(){
+el[0].addEventListener("touchend", function(e) {
 flag=0;
 
-});
+},false);
 
 });
 </script>
