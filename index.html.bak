@@ -123,9 +123,9 @@ el[0].addEventListener("touchmove", function(event) {
  
  event.preventDefault();
  
-  var diffX = (event.changedTouches[0].pageX) - startX;
+  var diffX = (event.changedTouches[0].pageX) + startX;
  
-  var diffY = (event.changedTouches[0].pageY) - startY;
+  var diffY = (event.changedTouches[0].pageY) + startY;
  
  var x=diffX;
  var y=diffY;
