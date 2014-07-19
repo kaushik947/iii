@@ -110,13 +110,13 @@ el[0].addEventListener('touchstart', function(event) {
  var x=startX;
  var y=startY;
 
-if(x>=lef&&x<=(lef+w)&&y<=(tp+h+4)&&y>=(tp+h-4))
+if(x>=lef&&x<=(lef+w)&&y<=(tp+h+8)&&y>=(tp+h-8))
     flag=1;
-else if(x>=lef&&x<=(lef+w)&&y<=(tp+4)&&y>=(tp-4))
+else if(x>=lef&&x<=(lef+w)&&y<=(tp+8)&&y>=(tp-8))
     flag=2;
-else if(y>=tp&&y<=(tp+h)&&x<=(lef+w+4)&&x>=(lef+w-4))
+else if(y>=tp&&y<=(tp+h)&&x<=(lef+w+8)&&x>=(lef+w-8))
     flag=3;
-else if(y>=tp&&y<=(tp+h)&&x<=(lef+4)&&x>=(lef-4))
+else if(y>=tp&&y<=(tp+h)&&x<=(lef+8)&&x>=(lef-8))
     flag=4;
 
 
@@ -129,9 +129,9 @@ el[0].addEventListener("touchmove", function(event) {
  
  event.preventDefault();
  
-  var diffX = (event.changedTouches[0].pageX) + startX;
+  var diffX = (event.changedTouches[0].pageX);
  
-  var diffY = (event.changedTouches[0].pageY) + startY;
+  var diffY = (event.changedTouches[0].pageY);
  
  var x=diffX;
  var y=diffY;
