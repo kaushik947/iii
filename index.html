@@ -7,6 +7,10 @@ p
 color:red;
 
 }
+h1
+{
+ color:red;
+}
 body
 {
 background:black;
@@ -94,6 +98,8 @@ el[0].addEventListener('touchstart', function(event) {
  
   // offsetY = ($(window).height()-el.outerHeight(true))/2;
   startY = event.targetTouches[0].pageY;
+ 
+ $("h1").text(startX+"/"+startY);
  
  lef=parseInt($("#a").css("left"),10);
  tp=parseInt($("#a").css("top"),10);
@@ -271,7 +277,7 @@ fjhgukiikhujh
 
 </div>
 
-
+<h1></h1>
 <p>Mouse is at coordinates: <span></span>.</p>
 <div id="a">
 </div>
