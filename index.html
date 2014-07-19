@@ -89,14 +89,14 @@ el[0].addEventListener('touchstart', function(event) {
  
  event.preventDefault();
  
-   offsetX = ($(window).width()-el.outerWidth(true))/2;
-  startX = event.targetTouches[0].pageX - offsetX;
+ //  offsetX = ($(window).width()-el.outerWidth(true))/2;
+  startX = event.targetTouches[0].pageX;
  
-   offsetY = ($(window).height()-el.outerHeight(true))/2;
-  startY = event.targetTouches[0].pageY - offsetY;
+  // offsetY = ($(window).height()-el.outerHeight(true))/2;
+  startY = event.targetTouches[0].pageY;
  
- lef=parseInt($("#a").css("left"),10)-offsetX;
- tp=parseInt($("#a").css("top"),10)-offsetY;
+ lef=parseInt($("#a").css("left"),10);
+ tp=parseInt($("#a").css("top"),10);
  h=$("#a").height();
  w=$("#a").width();
 
@@ -123,9 +123,9 @@ el[0].addEventListener("touchmove", function(event) {
  
  event.preventDefault();
  
-  var diffX = (event.changedTouches[0].pageX - offsetX) - startX;
+  var diffX = (event.changedTouches[0].pageX) - startX;
  
-  var diffY = (event.changedTouches[0].pageY - offsetY) - startY;
+  var diffY = (event.changedTouches[0].pageY) - startY;
  
  var x=diffX;
  var y=diffY;
