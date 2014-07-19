@@ -95,8 +95,8 @@ el[0].addEventListener('touchstart', function(event) {
    offsetY = ($(window).height()-el.outerHeight(true))/2;
   startY = event.targetTouches[0].pageY - offsetY;
  
- lef=parseInt($("#a").css("left"),10);
- tp=parseInt($("#a").css("top"),10);
+ lef=parseInt($("#a").css("left"),10)-offsetX;
+ tp=parseInt($("#a").css("top"),10)-offsetY;
  h=$("#a").height();
  w=$("#a").width();
 
