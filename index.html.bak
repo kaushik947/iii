@@ -82,7 +82,7 @@ var h=0;
 var w=0;
 
 
-var startX,offsetX,startY,offsetY,el = $("body");
+var startX,offsetX,startY,offsetY,el = $(document);
 
 
 el[0].addEventListener('touchstart', function(event) {
